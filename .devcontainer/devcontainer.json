@@ -13,10 +13,10 @@
             "version": "latest"
         },
         "ghcr.io/devcontainers/features/ruby:1": {
-            "version": "3.2.0" // Change Ruby version as required
+            "version": "3.2.4"
         },
         "ghcr.io/devcontainers/features/node:1": {
-            "version": 19 // Change Node version as required
+            "version": 20
         },
         "ghcr.io/devcontainers/features/common-utils:1": {
             "username": "vscode",
@@ -30,60 +30,24 @@
     },
     "customizations": {
         "vscode": {
-            // Set *default* container specific settings.json values on container create.
             "settings": {
-                "workbench.iconTheme": "vscode-icons",
-                "workbench.colorTheme": "GitHub Dark",
                 "emmet.includeLanguages": {
                     "erb": "html"
                 },
-                "sqltools.connections": [
-                    {
-                        "name": "Rails Development Database",
-                        "driver": "PostgreSQL",
-                        "previewLimit": 50,
-                        "server": "db",
-                        "port": 5432,
-                        // update this to match config/database.yml
-                        "database": "ror_project_development",
-                        "username": "postgres",
-                        "password": "postgres"
-                    },
-                    {
-                        "name": "Rails Test Database",
-                        "driver": "PostgreSQL",
-                        "previewLimit": 50,
-                        "server": "db",
-                        "port": 5432,
-                        // update this to match config/database.yml
-                        "database": "ror_project_test",
-                        "username": "postgres",
-                        "password": "postgres"
-                    }
-                ],
                 "ruby.format": "rubocop",
                 "editor.formatOnSave": true
             },
             "extensions": [
-                "iliazeus.vscode-ansi",
+                "streetsidesoftware.code-spell-checker",
                 "ms-azuretools.vscode-docker",
-                "manuelpuyol.erb-linter",
-                "waderyan.gitblame",
-                "GitHub.github-vscode-theme",
+                "mhutchie.git-graph",
+                "shyykoserhiy.git-autoconfig",
                 "eamodio.gitlens",
-                "IBM.output-colorizer",
-                "aki77.rails-db-schema",
-                "bung87.rails",
+                "christian-kohler.path-intellisense",
                 "castwide.solargraph",
-                "connorshea.vscode-ruby-test-adapter",
-                "rebornix.Ruby",
-                "mtxr.sqltools-driver-pg",
-                "mtxr.sqltools",
-                "hbenl.vscode-test-explorer",
-                "wingrunr21.vscode-ruby",
-                "LoranKloeze.ruby-rubocop-revived",
-                "bung87.vscode-gemfile",
-                "vscode-icons-team.vscode-icons"
+                "PKief.material-icon-theme",
+                "vayan.haml",
+                "LoranKloeze.ruby-rubocop-revived"
             ]
         }
     },
@@ -91,10 +55,7 @@
     // This can be used to network with other containers or the host.
     "forwardPorts": [
         3000,
-        5432,
-        6379,
-        7700,
-        11211
+        5432
     ],
     // Use 'onCreateCommand' to run commands while the container is creating.
     "onCreateCommand": "gem install solargraph",

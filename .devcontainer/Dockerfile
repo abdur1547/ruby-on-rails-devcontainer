@@ -9,10 +9,6 @@ ENV MEMCACHE_SERVERS=memcached:11211
 
 # Install additional OS packages and PostgreSQL client.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends postgresql-client software-properties-common
-
-# Setup Firefox to do system testing.
-RUN add-apt-repository ppa:mozillateam/ppa
-RUN echo 'Package: *\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1001\n' | sudo tee /etc/apt/preferences.d/mozilla-firefox
-RUN apt update
-RUN apt -y install firefox
+    && apt-get -y upgrade \
+    && apt-get -y install --no-install-recommends \
+    postgresql-client software-properties-common
