@@ -60,5 +60,5 @@
     // Use 'onCreateCommand' to run commands while the container is creating.
     "onCreateCommand": "gem install solargraph",
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": ".devcontainer/setup.sh"
+    "postCreateCommand": "chmod +x .devcontainer/setup.sh && chmod +x .devcontainer/setup.sh"
 }
