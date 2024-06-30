@@ -34,7 +34,7 @@
                 "emmet.includeLanguages": {
                     "erb": "html"
                 },
-                "ruby.format": "rubocop",
+                "ruby.format": "castwide.solargraph",
                 "editor.formatOnSave": true
             },
             "extensions": [
