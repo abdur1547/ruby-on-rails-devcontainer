@@ -12,60 +12,18 @@ services:
       - $HOME/.ssh/:/home/vscode/.ssh/
     command: sleep infinity
 
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-
-  selenium:
-    image: seleniarm/standalone-chromium
+  db:
+    image: postgres:latest
     restart: unless-stopped
-<<<<<<< HEAD
     ports:
       - 5432:5432
-=======
-
-  db:
-    image: postgres:16
-    restart: unless-stopped
-    command: postgres -c "pg_stat_statements.track=all" -c "shared_preload_libraries=pg_stat_statements"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
->>>>>>> origin/main
     environment:
       POSTGRES_USER: vscode
       POSTGRES_DB: ruby_on_rails_devcontainer_development
       POSTGRES_PASSWORD: password
 
   redis:
-    image: redis:7.2.5
+    image: redis:latest
     restart: unless-stopped
-<<<<<<< HEAD
     ports:
       - 6379:6379
-=======
-    volumes:
-      - redis-data:/data
-    ports:
-      - 6379:6379
-
-  memcached:
-    image: memcached:1.6.28
-    restart: unless-stopped
-    volumes:
-      - memcached-data:/var/lib/memcached/data
-    ports:
-      - 11211:11211
-
-  meilisearch:
-    image: getmeili/meilisearch:v1.8.3
-    restart: unless-stopped
-    volumes:
-      - meilisearch-data:/meili_data
-    ports:
-      - 7700:7700
-
-volumes:
-  postgres-data:
-  redis-data:
-  memcached-data:
-  meilisearch-data:
->>>>>>> origin/main
