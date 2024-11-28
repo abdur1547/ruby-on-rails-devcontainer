@@ -19,8 +19,13 @@ Softwares:
 Extensions:
 - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-- [Ruby Solargraph](https://marketplace.visualstudio.com/items?itemName=castwide.solargraph)
-- [ruby-rubocop-revived](https://marketplace.visualstudio.com/items?itemName=LoranKloeze.ruby-rubocop-revived)
+- [Ruby LSP](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-lsp)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+- [git-autoconfig](https://marketplace.visualstudio.com/items?itemName=shyykoserhiy.git-autoconfig)
+- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [Ruby Haml](https://marketplace.visualstudio.com/items?itemName=vayan.haml)
 
 
 ## How to use?
@@ -31,12 +36,8 @@ Copy the `.devcontainer` directory into your Ruby on Rails project root director
 
 ### Automatic setup
 
-This devcontainer setup does the following for you while building the image:
-- Runs `gem update --system`
-- Runs `bundle install`
-- Runs `rails db:prepare`
-
-You can customize this behavior inside `.devcontainer/setup.sh` file.
+At the end of creating containers required for dev setup, it try to runs `bin/setup` ruby script which comes with Rail project since Rails version 7. If you don't have that script you can skip that command by commenting out 
+`"postCreateCommand": "./bin/setup"` in `.devcontainer/devcontainer.json`
 
 ### PostgreSQL
 
